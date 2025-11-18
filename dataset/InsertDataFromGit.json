@@ -1,0 +1,22 @@
+{
+	"name": "InsertDataFromGit",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceGit",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "shashank-017/AzureDataFactory_Self/refs/heads/main/Books_Data_Clean.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

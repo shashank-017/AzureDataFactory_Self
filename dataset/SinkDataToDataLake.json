@@ -1,0 +1,24 @@
+{
+	"name": "SinkDataToDataLake",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceDestinationDataLake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "book_data.csv",
+				"folderPath": "csvFiles/GitHub",
+				"fileSystem": "destination"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
