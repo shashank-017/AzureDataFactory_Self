@@ -347,7 +347,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "GetMetadataFromContainer",
+						"name": "GetMetadataFromContainers",
 						"type": "GetMetadata",
 						"dependsOn": [],
 						"policy": {
@@ -382,7 +382,7 @@
 						"type": "ForEach",
 						"dependsOn": [
 							{
-								"activity": "GetMetadataFromContainer",
+								"activity": "GetMetadataFromContainers",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -391,7 +391,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@activity('GetMetadataFromContainer').output.childItems",
+								"value": "@activity('GetMetadataFromContainers').output.childItems",
 								"type": "Expression"
 							},
 							"isSequential": true,
