@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('GetMetadataFromContainer').output.childItems",
+						"value": "@activity('GetMetadataFromContainers').output.childItems",
 						"type": "Expression"
 					},
 					"isSequential": true,
