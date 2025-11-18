@@ -1,0 +1,32 @@
+{
+	"name": "ReportingSink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceDestinationDataLake",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"P_File_Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().P_File_Name",
+					"type": "Expression"
+				},
+				"folderPath": "csvFiles",
+				"fileSystem": "reportingdataset"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

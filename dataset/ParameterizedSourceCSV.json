@@ -1,0 +1,81 @@
+{
+	"name": "ParameterizedSourceCSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceDestinationDataLake",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"P_File_Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().P_File_Name",
+					"type": "Expression"
+				},
+				"folderPath": "csvFiles",
+				"fileSystem": "destination"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "873",
+				"type": "String"
+			},
+			{
+				"name": "21601",
+				"type": "String"
+			},
+			{
+				"name": "21602",
+				"type": "String"
+			},
+			{
+				"name": "10.133",
+				"type": "String"
+			},
+			{
+				"name": "10.134",
+				"type": "String"
+			},
+			{
+				"name": "05",
+				"type": "String"
+			},
+			{
+				"name": "8.91",
+				"type": "String"
+			},
+			{
+				"name": "07",
+				"type": "String"
+			},
+			{
+				"name": "08",
+				"type": "String"
+			},
+			{
+				"name": "09",
+				"type": "String"
+			},
+			{
+				"name": "010",
+				"type": "String"
+			},
+			{
+				"name": "1",
+				"type": "String"
+			}
+		]
+	}
+}
