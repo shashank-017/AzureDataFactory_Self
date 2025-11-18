@@ -1,0 +1,9 @@
+{
+	"name": "adf-shashank-practice",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3513e0ed-0422-4ee4-8b1d-0461c5bcaf07",
+		"tenantId": "2518c6d6-3c6e-490a-a84e-040cbb27d617"
+	}
+}
