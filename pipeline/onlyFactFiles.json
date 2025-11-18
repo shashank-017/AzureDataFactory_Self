@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "GetMetadataFromContainer",
+				"name": "GetMetadataFromContainers",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -36,7 +37,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "GetMetadataFromContainer",
+						"activity": "GetMetadataFromContainers",
 						"dependencyConditions": [
 							"Succeeded"
 						]
