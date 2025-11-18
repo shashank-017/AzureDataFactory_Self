@@ -1,0 +1,74 @@
+{
+	"name": "TransformCSVDataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "dataflowSource",
+						"type": "DatasetReference"
+					},
+					"name": "sourceCSV"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "selectActivity"
+				},
+				{
+					"name": "filterData"
+				},
+				{
+					"name": "split1"
+				},
+				{
+					"name": "derivedColumn"
+				},
+				{
+					"name": "aggregate1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          name as string,",
+				"          Longitude as double,",
+				"          Latitude as double,",
+				"          continent as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourceCSV",
+				"sourceCSV select(mapColumn(",
+				"          name,",
+				"          continent",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectActivity",
+				"selectActivity filter(continent != 'Asia') ~> filterData",
+				"filterData split(continent=='Oceania',",
+				"     continent=='North America',",
+				"     disjoint: false) ~> split1@(Ocean, American, RestOfTheWorld)",
+				"split1@RestOfTheWorld derive(continent = continent+'_changed') ~> derivedColumn",
+				"split1@Ocean aggregate(groupBy(continent),",
+				"     name = collect(name)) ~> aggregate1",
+				"aggregate1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
