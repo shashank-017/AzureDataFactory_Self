@@ -14,6 +14,9 @@
 		"LinkedServiceGit_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/"
 		},
+		"storageEventTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/d035581d-68c4-4ecd-bf80-c7f194c6724f/resourceGroups/RG-ADFPractice/providers/Microsoft.Storage/storageAccounts/storagefordatafactory017"
+		},
 		"containerUri": {
 			"value": ""
 		},
