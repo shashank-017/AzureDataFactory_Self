@@ -1,0 +1,23 @@
+{
+	"name": "sinkToManagerTriggerPipeline",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceDestinationDataLake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "managerData",
+				"fileSystem": "reportingdataset"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
