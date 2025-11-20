@@ -1,0 +1,24 @@
+{
+	"name": "storageEventTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PipelineForStorageTrigger",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/source/blobs/manager_dir_for_event_trigger/happiness.csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/d035581d-68c4-4ecd-bf80-c7f194c6724f/resourceGroups/RG-ADFPractice/providers/Microsoft.Storage/storageAccounts/storagefordatafactory017",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
